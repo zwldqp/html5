@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            background: #000000;
+        }
+        #myCanvas{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300"></canvas>
+<!--画布-->
+<script>
+    var oC=document.getElementById('myCanvas'); //得到画布
+    var ctx=oC.getContext('2d');
+//
+//
+//    ctx.beginPath();  //与close一起用  两条线自动闭合形成三角形
+//
+//    ctx.moveTo(50,50);  //从50 50到点80 200一条线
+//    ctx.lineTo(80,200);
+//    ctx.lineTo(200,60);
+//
+//    ctx.closePath();
+//
+//
+//
+//    ctx.lineTo(50,50);  //画出三角形
+//    ctx.strokeStyle='red';  //线颜色
+//    ctx.fillStyle='green';  //填充颜色
+//    ctx.fill();
+//    ctx.arc(200,150,50,0,0.8*Math.PI,false);
+//    ctx.stroke();   //描边
+//
+
+
+
+    oC.onmousedown=function(e){
+        ctx.moveTo(e.clientX, e.clientY);
+        oC.onmousemove=function(e){
+            ctx.lineTo(e.clientX, e.clientY);
+            ctx.stroke();
+        }
+        oC.onmouseup=function(){
+            oC.onmousemove=null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<!--<script>-->
+<!--cookie-->
+<!--//    点击提交按钮可以直接绑定提交事件   给表单绑定onsubmit()-->
+    <!--var data=new Date();-->
+    <!--data.setDate(5);-->
+   <!--// document.cookie='name=zhangsan;expires='+data;-->
+    <!--document.cookie='age=18';-->
+    <!--document.cookie='name=zhangsan;expires='+data;  //如果data过期了  自动删除  如果data是5号  还没到 就存在-->
+    <!--function setCookie(key,value,day){-->
+        <!--var str=key+'='+value+';';-->
+        <!--if(day){-->
+            <!--var date=new Date();-->
+            <!--date.setDate(date.getDate()+day);-->
+            <!--str+='expires='+date;-->
+        <!--}-->
+        <!--document.cookie=str;-->
+    <!--}-->
+    <!--setCookie('name','list',7);   //重名的会被覆盖   所以name是唯一的-->
+    <!--function getCookie(key){-->
+        <!--var str=document.cookie;-->
+        <!--var arr=str.split('; ');    //因为得到的是age=18； name=list；  每个；后面都有空格，所以用；空格截取字符串-->
+        <!--for(var i=0;i<arr.length;i++){-->
+            <!--var arr1=arr[i].split('=');-->
+            <!--if(arr1[0]==key){-->
+                <!--return arr1[1];-->
+            <!--}-->
+        <!--}-->
+    <!--}-->
+    <!--console.log(getCookie('name'));-->
+    <!--function delCookie(key){-->
+        <!--var str=document.cookie;-->
+        <!--var date=new Date();-->
+        <!--date.setDate(date.getDate()-10);-->
+        <!--var arr=str.split('; ');    //因为得到的是age=18； name=list；  每个；后面都有空格，所以用；空格截取字符串-->
+        <!--for(var i=0;i<arr.length;i++){-->
+            <!--var arr1=arr[i].split('=');-->
+            <!--if(arr1[0]==key){-->
+                <!--arr1=arr1[0]+'='+arr1[1]+';'+'expires='+date;-->
+                <!--document.cookie=arr1;-->
+            <!--}-->
+
+        <!--}-->
+    <!--}-->
+    <!--delCookie('name');-->
+<!--</script>-->
+</body>
+</html>
